@@ -25,7 +25,7 @@ nav .wrap{display:flex;gap:10px;align-items:center;overflow-x:auto;padding-botto
 nav b{font:700 17px Sora,sans-serif;margin-right:auto;white-space:nowrap;padding-right:14px}
 .pill{border:0;cursor:pointer;color:var(--ink);text-decoration:none;font:500 14px 'DM Sans',sans-serif;padding:9px 16px;border-radius:999px;background:var(--bg);box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi);white-space:nowrap;display:inline-block}
 .pill:hover,.pill.on{box-shadow:inset 3px 3px 7px var(--lo),inset -3px -3px 7px var(--hi);color:var(--acc)}
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;padding:46px 0 30px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:start;padding:26px 0 14px}
 .hero h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.02em}
 .hero p{color:var(--mute);font-size:18px;max-width:52ch}
 .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
@@ -33,7 +33,7 @@ nav b{font:700 17px Sora,sans-serif;margin-right:auto;white-space:nowrap;padding
 .btn:active{box-shadow:inset 4px 4px 9px rgba(0,0,0,.35),inset -2px -2px 6px rgba(255,255,255,.2)}
 .btn.soft{background:var(--bg);color:var(--ink)}
 .card{padding:28px;text-align:left}
-.photo{display:block;width:100%;height:260px;object-fit:cover;object-position:50% 20%;border-radius:12px}
+.photo{display:block;width:100%;height:230px;object-fit:cover;object-position:50% 20%;border-radius:12px}
 .card .name{font:700 22px Sora,sans-serif}.card .role{color:var(--mute);margin:2px 0 18px}
 .card ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px}
 .card li{padding:11px 15px;font-size:15px;word-break:break-word}
@@ -52,6 +52,16 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 .fab{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:20}
 @media(max-width:760px){.hero{grid-template-columns:1fr}.tl .item{grid-template-columns:1fr;gap:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;margin-top:34px}
+.stat{padding:18px}.stat b{display:block;font:700 28px Sora,sans-serif;color:var(--acc)}.stat span{font-size:13px;color:var(--mute);line-height:1.4;display:block}
+.gal{columns:3 270px;column-gap:24px}
+.g{break-inside:avoid;margin:0 0 24px;padding:12px;display:block}
+.gb{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:14px;overflow:hidden}
+.gb img{display:block;width:100%;height:auto;border-radius:14px}
+.g figcaption{font-size:14px;color:var(--mute);padding:12px 6px 4px}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,14,24,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;color:#fff;text-align:center}
+.lb img{max-width:92vw;max-height:74vh;object-fit:contain;border-radius:12px}.lb p{margin:0;max-width:60ch}
 </style>
 </head>
 <body>
@@ -63,12 +73,12 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 const {useState,useEffect}=React;
 const EMAIL='simacoder@hotmail.com';
 const MAIL='mailto:'+EMAIL+'?subject='+encodeURIComponent('Hello Simanga');
-const L={li:'https://www.linkedin.com/in/simanga-mchunu-7570078a/',gh:'https://github.com/Simacoder',orcid:'https://orcid.org/0000-0001-9712-9705',yt:'https://www.youtube.com/@SimangaMchunu',zindi:'https://zindi.world/community?leaderboard=all-time&country=ZA',paper:'https://sciforum.net/paper/view/31494',icaad:'https://drive.google.com/file/d/1uNrNyCB6yGAuwioF3Q9LS7DMIxw8Vbci/view?usp=sharing',aoa:'https://drive.google.com/file/d/1wfRFKWC0HKwHGPKD4DxvNn86lkmUCv9f/view',pt:'https://github.com/pytorch-fdn/ambassador-program/issues/363',sasa:'https://sasaconference2026.org/'};
+const L={li:'https://www.linkedin.com/in/simanga-mchunu-7570078a/',gh:'https://github.com/Simacoder',orcid:'https://orcid.org/0000-0001-9712-9705',yt:'https://www.youtube.com/@SimangaMchunu',zindi:'https://zindi.world/community?leaderboard=all-time&country=ZA',paper:'https://sciforum.net/paper/view/31494',icaad:'https://drive.google.com/file/d/1uNrNyCB6yGAuwioF3Q9LS7DMIxw8Vbci/view?usp=sharing',aoa:'https://drive.google.com/file/d/1wfRFKWC0HKwHGPKD4DxvNn86lkmUCv9f/view',pt:'https://github.com/pytorch-fdn/ambassador-program/issues/363',sasa:'https://sasaconference2026.org/',talk:'https://youtube.com/shorts/hMy1cLL1nb8'};
 const A=({href,children,...r})=><a href={href} target="_blank" rel="noopener noreferrer" {...r}>{children}</a>;
 const Verify=({href,label='Verify'})=><A href={href}>{label}</A>;
 
 const research=[
- {tag:'Published',t:'Algorithm Design and Mathematical Modeling for Efficient ASR in Low-Resource African Languages',p:'Published on Sciforum (2026) and presented as a contributed talk at Deep Learning IndabaX South Africa 2026, UKZN Durban.',l:[['Read the paper',L.paper]]},
+ {tag:'Published',t:'Algorithm Design and Mathematical Modeling for Efficient ASR in Low-Resource African Languages',p:'Published on Sciforum (2026) and presented as a contributed talk at Deep Learning IndabaX South Africa 2026, UKZN Durban.',l:[['Read the paper',L.paper],['Watch the talk',L.talk]]},
  {tag:'Oral presentation',t:'Expanded Sample Space Theory: A Comprehensive Framework for Real-World Probability',p:'Accepted for oral presentation at ICAAD 2026 (submission 648). ESST extends classical probability to real-world uncertainty.',l:[['Verify acceptance',L.icaad]]},
  {tag:'Poster',t:'Expanded Sample Space Theory (ESST) at SASA 2026',p:'Abstract A100 accepted as a poster presentation by the SASA 2026 Scientific Program Committee, Boksburg.',l:[['Conference site',L.sasa]]}
 ];
@@ -82,6 +92,9 @@ const jobs=[
  ['Dec 2021 – May 2022','Field Officer Organizer','Statistics South Africa','Community mobilisation, census geography and data collection.']
 ];
 const projects=[
+ ['PolyDepend','Python, CLI and GUI, PyPI','Cross-language dependency resolver and manager. Analyses Python, JavaScript, Java, Ruby, Go and Rust projects, detects and resolves version conflicts, supports offline mode and dependency graphs, and is extensible through plugins. Install with pip install polydepend.','https://github.com/Simacoder/polydepend','GitHub',['PyPI package','https://pypi.org/project/polydepend/'],'Published on PyPI'],
+ ['Decision Tree from Scratch','Machine learning, Algorithms','A decision tree algorithm developed from scratch, built as Week 11 of my 52 Weeks Challenges series.','https://github.com/Simacoder/52_Weeks_Challenges/tree/main/week_11','GitHub'],
+ ['52 Weeks Challenges: Week 5','Weekly coding challenge','Week 5 of my 52 Weeks Challenges series, a year-long habit of building one project every week.','https://github.com/Simacoder/52_Weeks_Challenges/tree/main/Week_5','GitHub'],
  ['E-commerce Backend System','Django, DRF, PostgreSQL, Swagger','ALX Project Nexus: a production-style e-commerce API.','https://simanga5.pythonanywhere.com/swagger/','Live API'],
  ['FundFoward','AI, Fintech','Micro-bursary platform matching students with donors by need, academics and donor intent, with instant disbursement.','https://github.com/Simacoder/FundFoward','GitHub'],
  ['SpazaShop E-commerce','Python, Django, JavaScript','Digital storefront for South African spaza shops.','https://github.com/Simacoder/spaza_online','GitHub'],
@@ -97,7 +110,8 @@ const awards=[
  ['2026 PyTorch Foundation Ambassador',L.pt],['Oral presentation accepted: ICAAD 2026',L.icaad],['SASA 2026 poster accepted (A100)',L.sasa],['AOA Rising Stars 2026 Excellence Certificate',L.aoa],['Top Olympiad Mathematics student, AOA class of 2026'],
  ['Won IBM Z Datathon 2024 (global number 1)'],['Won ALX Hackathon 2024'],['2nd place, Zindi / IndabaX South Africa 2025 hackathon with InstaDeep'],['Top 15 Young Geek Award, class of 2026'],['Speaker: Deep Learning IndabaX South Africa 2026'],['Zindi Ambassador 2025/26, 2x Tableau Ambassador'],['DIRISA Datathon judge and technical mentor 2025']
 ];
-const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['skills','Skills'],['awards','Awards'],['community','Community'],['contact','Contact']];
+const stats=[['14,000+','students guided as IBM Z Datathon mentor'],['#1','global winner, IBM Z Datathon 2024'],['3','conference acceptances in 2026']];
+const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['contact','Contact']];
 
 function MailBtn({cls='btn',children='Send a Mail'}){return <a className={cls} href={MAIL} target="_blank" rel="noopener noreferrer">✉ {children}</a>}
 function CV(){return <a className="btn soft" href="Simanga_Mchunu_CV.pdf" download="Simanga_Mchunu_CV.pdf">⬇ Download CV</a>}
@@ -106,6 +120,33 @@ function Copy(){const[ok,set]=useState(false);
  return <button className="btn soft" onClick={go}>{ok?'Copied':'Copy email'}</button>}
 function Sec({id,title,children}){return <section id={id}><div className="wrap"><h2>{title}</h2>{children}</div></section>}
 
+const cats=['All','Talks','Mentoring & judging','Competitions','Community'];
+const pics=[
+ ['indabax-2026-talk','Presenting my ASR research at Deep Learning IndabaX South Africa 2026','Talks',461,1000],
+ ['indabax-2026-slide','Title slide of my contributed talk, 8 July 2026','Talks',1000,1000],
+ ['indabax-2026-poster','Poster session at Deep Learning IndabaX South Africa 2026','Talks',562,1000],
+ ['zindi-study-jam','Zindi Study Jam I hosted: Financial Health Prediction Challenge, 14 Feb 2026','Talks',1000,1000],
+ ['mentoring-google-zindi','Mentoring participants at the Google Zindi hackathon 2026, Johannesburg','Mentoring & judging',1000,693],
+ ['mentoring-pupils','Mentoring a school pupil team in the challenge, Cape Town','Mentoring & judging',1000,707],
+ ['judging-prep','Preparing to judge the technical side of participants\' projects','Mentoring & judging',1000,707],
+ ['judge-dirisa','Technical judge, DIRISA Datathon','Mentoring & judging',1000,707],
+ ['venda-winners','A University of Venda student I mentored won the DIRISA challenge, Dec 2025','Mentoring & judging',1000,707],
+ ['second-place','2nd place, Zindi hackathon with InstaDeep, Cape Town, July 2025','Competitions',1000,667],
+ ['top15','Top 15 Young Geeks, Class of 2026 (Geekulcha)','Competitions',1000,562],
+ ['indabax-2025','Deep Learning IndabaX South Africa 2025, Cape Town','Community',750,1000],
+ ['indabax-2026-crew','With fellow attendees at Deep Learning IndabaX South Africa 2026','Community',750,1000],
+ ['google-cloud-summit','Google Cloud Summit','Community',1000,1000],
+ ['preppilot-team','PrepPilot team at the UNISA agentic hackathon, September 2026','Competitions',1000,750],
+ ['preppilot-trio','PrepPilot teammates at the UNISA agentic hackathon, September 2026','Competitions',750,1000]
+];
+function Gallery(){const[c,setC]=useState('All');const[o,setO]=useState(null);
+ useEffect(()=>{const k=e=>e.key==='Escape'&&setO(null);window.addEventListener('keydown',k);return()=>window.removeEventListener('keydown',k)},[]);
+ const list=pics.filter(p=>c==='All'||p[2]===c);
+ return <>
+  <div className="row" style={{marginTop:0,marginBottom:26}}>{cats.map(x=><button key={x} className={'pill'+(c===x?' on':'')} aria-pressed={c===x} onClick={()=>setC(x)}>{x}</button>)}</div>
+  <div className="gal">{list.map(p=><figure className="g raise" key={p[0]}><button className="gb" onClick={()=>setO(p)} aria-label={'Enlarge photo: '+p[1]}><img src={'gallery/'+p[0]+'.jpg'} alt={p[1]} width={p[3]} height={p[4]} loading="lazy"/></button><figcaption>{p[1]}</figcaption></figure>)}</div>
+  {o&&<div className="lb" role="dialog" aria-modal="true" onClick={()=>setO(null)}><img src={'gallery/'+o[0]+'.jpg'} alt={o[1]}/><p>{o[1]}</p><button className="btn" onClick={()=>setO(null)}>Close</button></div>}
+ </>}
 function App(){
  const[cur,setCur]=useState('');
  useEffect(()=>{const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&setCur(e.target.id)),{rootMargin:'-40% 0px -55% 0px'});
@@ -117,6 +158,7 @@ function App(){
    <h1>Simanga Mchunu</h1>
    <p style={{marginTop:14}}>Machine learning engineer and AI researcher. I build speech technology and probability models for African languages and real-world uncertainty, and ship them as backend systems.</p>
    <div className="row"><MailBtn/><CV/></div>
+   <div className="stats">{stats.map(x=><div className="stat raise" key={x[1]}><b>{x[0]}</b><span>{x[1]}</span></div>)}</div>
   </div>
   <div className="card raise" id="card">
    <div className="inset" style={{padding:8,marginBottom:20}}><img className="photo" src="photo.jpg" alt="Simanga Mchunu speaking at a conference" width="640" height="640"/></div>
@@ -132,7 +174,7 @@ function App(){
  </header>
 
  <Sec id="research" title="Research and talks"><div className="grid">
-  {research.map(r=><article className="item raise" key={r.t}><span className="tag inset">{r.tag}</span><h3>{r.t}</h3><p>{r.p}</p>{r.l.map(([n,h])=><Verify key={n} href={h} label={n}/>)}</article>)}
+  {research.map(r=><article className="item raise" key={r.t}><span className="tag inset">{r.tag}</span><h3>{r.t}</h3><p>{r.p}</p><div className="row" style={{marginTop:0,gap:18}}>{r.l.map(([n,h])=><Verify key={n} href={h} label={n}/>)}</div></article>)}
  </div></Sec>
 
  <Sec id="experience" title="Experience"><div className="tl">
@@ -140,7 +182,7 @@ function App(){
  </div></Sec>
 
  <Sec id="projects" title="Projects"><div className="grid">
-  {projects.map(p=><article className="item raise" key={p[0]}><h3>{p[0]}</h3><div style={{color:'var(--acc)',fontSize:14,fontWeight:700}}>{p[1]}</div><p>{p[2]}</p><A href={p[3]}>{p[4]}</A></article>)}
+  {projects.map(p=><article className="item raise" key={p[0]}>{p[6]&&<span className="tag inset">{p[6]}</span>}<h3>{p[0]}</h3><div style={{color:'var(--acc)',fontSize:14,fontWeight:700}}>{p[1]}</div><p>{p[2]}</p><div className="row" style={{marginTop:0,gap:18}}><A href={p[3]}>{p[4]}</A>{p[5]&&<A href={p[5][1]}>{p[5][0]}</A>}</div></article>)}
  </div></Sec>
 
  <Sec id="skills" title="Skills"><div className="grid">
@@ -150,6 +192,8 @@ function App(){
  <Sec id="awards" title="Honors and awards"><ul className="aw">
   {awards.map(a=><li className="inset" key={a[0]}>{a[0]}{a[1]&&<> · <Verify href={a[1]}/></>}</li>)}
  </ul></Sec>
+
+ <Sec id="gallery" title="Gallery: events I have been part of"><Gallery/></Sec>
 
  <Sec id="community" title="Community and channels"><div className="grid">
   <article className="item raise"><h3>YouTube: Simanga Mchunu</h3><p>Tutorials and talks on machine learning, data science and building with AI.</p><a className="btn" href={L.yt} target="_blank" rel="noopener noreferrer">Watch on YouTube</a></article>
