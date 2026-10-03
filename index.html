@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Simanga Mchunu | ML Engineer & AI Researcher</title>
-<meta name="description" content="Portfolio of Simanga Mchunu: machine learning engineer and AI researcher working on speech recognition for African languages.">
-<meta property="og:title" content="Simanga Mchunu | ML Engineer & AI Researcher">
+<title>Simanga Mchunu |ML Engineer, ML Researcher, Backend, MLOps & DevOps Engineer, Applied Mathematician, Trainer</title>
+<meta name="description" content="Portfolio of Simanga Mchunu: ML Engineer, ML Researcher, backend engineer, MLOps and DevOps practitioner, applied mathematician and trainer.">
+<meta property="og:title" content="Simanga Mchunu | ML Engineer, ML Researcher, Backend, MLOps & DevOps Engineer, Trainer">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%A7%A0%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -23,7 +23,7 @@ a{color:var(--acc)}a:focus-visible,button:focus-visible{outline:3px solid var(--
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;padding:14px 0;background:var(--bg)}
 nav .wrap{display:flex;gap:10px;align-items:center;overflow-x:auto;padding-bottom:10px;padding-top:4px}
 nav b{font:700 17px Sora,sans-serif;margin-right:auto;white-space:nowrap;padding-right:14px}
-.pill{border:0;cursor:pointer;color:var(--ink);text-decoration:none;font:500 14px 'DM Sans',sans-serif;padding:9px 16px;border-radius:999px;background:var(--bg);box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi);white-space:nowrap;display:inline-block}
+.pill{border:0;cursor:pointer;color:var(--ink);text-decoration:none;font:500 14px 'DM Sans',sans-serif;padding:9px 13px;border-radius:999px;background:var(--bg);box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi);white-space:nowrap;display:inline-block}
 .pill:hover,.pill.on{box-shadow:inset 3px 3px 7px var(--lo),inset -3px -3px 7px var(--hi);color:var(--acc)}
 .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:start;padding:26px 0 14px}
 .hero h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.02em}
@@ -62,6 +62,13 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 .g figcaption{font-size:14px;color:var(--mute);padding:12px 6px 4px}
 .lb{position:fixed;inset:0;z-index:50;background:rgba(10,14,24,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;color:#fff;text-align:center}
 .lb img{max-width:92vw;max-height:74vh;object-fit:contain;border-radius:12px}.lb p{margin:0;max-width:60ch}
+
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.field{display:grid;gap:7px;margin-bottom:18px;text-align:left}.field label{font-weight:700;font-size:14px}
+.in{width:100%;border:0;padding:14px 16px;font:inherit;color:var(--ink);background:var(--bg);border-radius:14px;box-shadow:inset 5px 5px 11px var(--lo),inset -5px -5px 11px var(--hi)}
+.in:focus-visible{outline:3px solid var(--acc);outline-offset:2px}textarea.in{min-height:150px;resize:vertical}
+.msg{margin-top:16px;padding:14px 16px;font-weight:500}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -73,7 +80,7 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 const {useState,useEffect}=React;
 const EMAIL='simacoder@hotmail.com';
 const MAIL='mailto:'+EMAIL+'?subject='+encodeURIComponent('Hello Simanga');
-const L={li:'https://www.linkedin.com/in/simanga-mchunu-7570078a/',gh:'https://github.com/Simacoder',orcid:'https://orcid.org/0000-0001-9712-9705',yt:'https://www.youtube.com/@SimangaMchunu',zindi:'https://zindi.world/community?leaderboard=all-time&country=ZA',paper:'https://sciforum.net/paper/view/31494',icaad:'https://drive.google.com/file/d/1uNrNyCB6yGAuwioF3Q9LS7DMIxw8Vbci/view?usp=sharing',aoa:'https://drive.google.com/file/d/1wfRFKWC0HKwHGPKD4DxvNn86lkmUCv9f/view',pt:'https://github.com/pytorch-fdn/ambassador-program/issues/363',sasa:'https://sasaconference2026.org/',talk:'https://youtube.com/shorts/hMy1cLL1nb8'};
+const L={li:'https://www.linkedin.com/in/simanga-mchunu-7570078a/',gh:'https://github.com/Simacoder',orcid:'https://orcid.org/0000-0001-9712-9705',yt:'https://www.youtube.com/@SimangaMchunu',zindi:'https://zindi.world/community?leaderboard=all-time&country=ZA',paper:'https://sciforum.net/paper/view/31494',icaad:'https://drive.google.com/file/d/1uNrNyCB6yGAuwioF3Q9LS7DMIxw8Vbci/view?usp=sharing',aoa:'https://drive.google.com/file/d/1wfRFKWC0HKwHGPKD4DxvNn86lkmUCv9f/view',pt:'https://github.com/pytorch-fdn/ambassador-program/issues/363',sasa:'https://sasaconference2026.org/',talk:'https://youtube.com/shorts/hMy1cLL1nb8',slides:'https://docs.google.com/presentation/d/1CCJaQ2SeDMZ3J_WKC1Y1clCIh6PqTvg5/preview',colab:'https://drive.google.com/file/d/1f8VGRQ1sA-DPHqCHdeopnJ3A4dpJqrQi/view',k8s:'https://github.com/Simacoder/k8s-observability-lab'};
 const A=({href,children,...r})=><a href={href} target="_blank" rel="noopener noreferrer" {...r}>{children}</a>;
 const Verify=({href,label='Verify'})=><A href={href}>{label}</A>;
 
@@ -93,6 +100,7 @@ const jobs=[
 ];
 const projects=[
  ['PolyDepend','Python, CLI and GUI, PyPI','Cross-language dependency resolver and manager. Analyses Python, JavaScript, Java, Ruby, Go and Rust projects, detects and resolves version conflicts, supports offline mode and dependency graphs, and is extensible through plugins. Install with pip install polydepend.','https://github.com/Simacoder/polydepend','GitHub',['PyPI package','https://pypi.org/project/polydepend/'],'Published on PyPI'],
+ ['K8s Observability Lab (KCNA)','Kubernetes, Prometheus, kind','Hands-on KCNA Chapter 7 lab on cloud-native observability, built for the Andela KCNA cohort I train. Learners stand up a local kind or minikube cluster and work through probes, metrics-server, kube-state-metrics, Prometheus and PromQL, and metrics-driven autoscaling with an HPA.','https://github.com/Simacoder/k8s-observability-lab','GitHub',null,'Andela KCNA cohort'],
  ['Decision Tree from Scratch','Machine learning, Algorithms','A decision tree algorithm developed from scratch, built as Week 11 of my 52 Weeks Challenges series.','https://github.com/Simacoder/52_Weeks_Challenges/tree/main/week_11','GitHub'],
  ['52 Weeks Challenges: Week 5','Weekly coding challenge','Week 5 of my 52 Weeks Challenges series, a year-long habit of building one project every week.','https://github.com/Simacoder/52_Weeks_Challenges/tree/main/Week_5','GitHub'],
  ['E-commerce Backend System','Django, DRF, PostgreSQL, Swagger','ALX Project Nexus: a production-style e-commerce API.','https://simanga5.pythonanywhere.com/swagger/','Live API'],
@@ -111,7 +119,12 @@ const awards=[
  ['Won IBM Z Datathon 2024 (global number 1)'],['Won ALX Hackathon 2024'],['2nd place, Zindi / IndabaX South Africa 2025 hackathon with InstaDeep'],['Top 15 Young Geek Award, class of 2026'],['Speaker: Deep Learning IndabaX South Africa 2026'],['Zindi Ambassador 2025/26, 2x Tableau Ambassador'],['DIRISA Datathon judge and technical mentor 2025']
 ];
 const stats=[['14,000+','students guided as IBM Z Datathon mentor'],['#1','global winner, IBM Z Datathon 2024'],['3','conference acceptances in 2026']];
-const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['contact','Contact']];
+const teach=[
+ {tag:'29 May 2026 · Online',t:'Building a Large Language Model from Scratch',p:'An introductory practical session on building and understanding LLMs using Python and AI fundamentals. Hosted by Dorothy Akoth for Divas in AI, with Zindi.',l:[['Slides',L.slides],['Colab notebook',L.colab]]},
+ {tag:'Andela cohort',t:'KCNA trainer: Kubernetes and Cloud Native Associate',p:'Training an Andela cohort for the KCNA exam, including a hands-on observability lab on a real local cluster.',l:[['Lab on GitHub',L.k8s]]},
+ {tag:'14 Feb 2026',t:'Zindi Study Jam: Financial Health Prediction Challenge',p:'A hands-on, beginner-friendly, step-by-step walkthrough of a first Zindi challenge.',l:[]}
+];
+const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['teaching','Teaching'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['contact','Contact']];
 
 function MailBtn({cls='btn',children='Send a Mail'}){return <a className={cls} href={MAIL} target="_blank" rel="noopener noreferrer">✉ {children}</a>}
 function CV(){return <a className="btn soft" href="Simanga_Mchunu_CV.pdf" download="Simanga_Mchunu_CV.pdf">⬇ Download CV</a>}
@@ -122,6 +135,7 @@ function Sec({id,title,children}){return <section id={id}><div className="wrap">
 
 const cats=['All','Talks','Mentoring & judging','Competitions','Community'];
 const pics=[
+ ['llm-session','Speaker at "Building a Large Language Model from Scratch", Divas in AI with Zindi, 29 May 2026','Talks',800,800],
  ['indabax-2026-talk','Presenting my ASR research at Deep Learning IndabaX South Africa 2026','Talks',461,1000],
  ['indabax-2026-slide','Title slide of my contributed talk, 8 July 2026','Talks',1000,1000],
  ['indabax-2026-poster','Poster session at Deep Learning IndabaX South Africa 2026','Talks',562,1000],
@@ -147,6 +161,31 @@ function Gallery(){const[c,setC]=useState('All');const[o,setO]=useState(null);
   <div className="gal">{list.map(p=><figure className="g raise" key={p[0]}><button className="gb" onClick={()=>setO(p)} aria-label={'Enlarge photo: '+p[1]}><img src={'gallery/'+p[0]+'.jpg'} alt={p[1]} width={p[3]} height={p[4]} loading="lazy"/></button><figcaption>{p[1]}</figcaption></figure>)}</div>
   {o&&<div className="lb" role="dialog" aria-modal="true" onClick={()=>setO(null)}><img src={'gallery/'+o[0]+'.jpg'} alt={o[1]}/><p>{o[1]}</p><button className="btn" onClick={()=>setO(null)}>Close</button></div>}
  </>}
+const FORM_ENDPOINT='https://formsubmit.co/ajax/datawithsima@gmail.com';
+const FORM_MAIL='datawithsima@gmail.com';
+const kinds=['Solve a project for me','Mentorship','Tutoring','Build a project','Research collaboration'];
+function RequestForm(){
+ const[st,setSt]=useState('idle');
+ const send=async e=>{e.preventDefault();const f=e.currentTarget;const d=Object.fromEntries(new FormData(f));
+  if(d._honey)return;setSt('sending');
+  try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...d,_subject:'Portfolio request: '+d.type,_template:'table',_captcha:'false'})});
+   const j=await r.json().catch(()=>({}));
+   if(r.ok&&String(j.success)!=='false'){setSt('ok');f.reset()}else setSt('err')}catch(x){setSt('err')}};
+ return <form onSubmit={send}>
+  <input type="text" name="_honey" tabIndex="-1" autoComplete="off" style={{display:'none'}} aria-hidden="true"/>
+  <div className="fgrid">
+   <div className="field"><label htmlFor="rn">Your name</label><input className="in" id="rn" name="name" required autoComplete="name"/></div>
+   <div className="field"><label htmlFor="re">Your email</label><input className="in" id="re" name="email" type="email" required autoComplete="email"/></div>
+   <div className="field"><label htmlFor="rt">What do you need?</label><select className="in" id="rt" name="type" required>{kinds.map(k=><option key={k}>{k}</option>)}</select></div>
+   <div className="field"><label htmlFor="rl">Timeline (optional)</label><input className="in" id="rl" name="timeline" placeholder="For example: 2 weeks"/></div>
+  </div>
+  <div className="field"><label htmlFor="rd">Project details</label><textarea className="in" id="rd" name="details" required placeholder="Describe the problem, your goal, and any tools or data involved."/></div>
+  <button className="btn" type="submit" disabled={st==='sending'}>{st==='sending'?'Sending...':'Send request'}</button>
+  <div aria-live="polite">
+   {st==='ok'&&<div className="msg inset">Thank you, your request was sent. I will reply to the email you gave.</div>}
+   {st==='err'&&<div className="msg inset">Sorry, that did not send. Please email <a href={'mailto:'+FORM_MAIL+'?subject='+encodeURIComponent('Project request')}>{FORM_MAIL}</a> directly.</div>}
+  </div>
+ </form>}
 function App(){
  const[cur,setCur]=useState('');
  useEffect(()=>{const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&setCur(e.target.id)),{rootMargin:'-40% 0px -55% 0px'});
@@ -157,13 +196,14 @@ function App(){
   <div>
    <h1>Simanga Mchunu</h1>
    <p style={{marginTop:14}}>Machine learning engineer and AI researcher. I build speech technology and probability models for African languages and real-world uncertainty, and ship them as backend systems.</p>
-   <div className="row"><MailBtn/><CV/></div>
+   <p style={{marginTop:10}}>Backend engineer, MLOps and DevOps practitioner, applied mathematician and trainer. I design and ship machine learning systems, research speech technology for African languages, and teach cloud-native and ML skills to developers and students.</p>
+   <div className="row"><MailBtn/><CV/><a className="btn soft" href="#request">Submit a project</a></div>
    <div className="stats">{stats.map(x=><div className="stat raise" key={x[1]}><b>{x[0]}</b><span>{x[1]}</span></div>)}</div>
   </div>
   <div className="card raise" id="card">
    <div className="inset" style={{padding:8,marginBottom:20}}><img className="photo" src="photo.jpg" alt="Simanga Mchunu speaking at a conference" width="640" height="640"/></div>
    <div className="name">Simanga Mchunu</div>
-   <div className="role">ML Engineer · AI Researcher · Applied Mathematician</div>
+   <div className="role">Backend · MLOps · DevOps · Applied Mathematician · Trainer</div>
    <ul>
     <li className="inset"><b>Email</b><br/>{EMAIL}</li>
     <li className="inset"><b>Based in</b><br/>Pretoria, South Africa</li>
@@ -183,6 +223,10 @@ function App(){
 
  <Sec id="projects" title="Projects"><div className="grid">
   {projects.map(p=><article className="item raise" key={p[0]}>{p[6]&&<span className="tag inset">{p[6]}</span>}<h3>{p[0]}</h3><div style={{color:'var(--acc)',fontSize:14,fontWeight:700}}>{p[1]}</div><p>{p[2]}</p><div className="row" style={{marginTop:0,gap:18}}><A href={p[3]}>{p[4]}</A>{p[5]&&<A href={p[5][1]}>{p[5][0]}</A>}</div></article>)}
+ </div></Sec>
+
+ <Sec id="teaching" title="Training and workshops"><div className="grid">
+  {teach.map(r=><article className="item raise" key={r.t}><span className="tag inset">{r.tag}</span><h3>{r.t}</h3><p>{r.p}</p>{r.l.length>0&&<div className="row" style={{marginTop:0,gap:18}}>{r.l.map(([n,h])=><Verify key={n} href={h} label={n}/>)}</div>}</article>)}
  </div></Sec>
 
  <Sec id="skills" title="Skills"><div className="grid">
@@ -205,7 +249,12 @@ function App(){
   <h3 style={{fontSize:24}}>Hiring, collaborating or curious about the research?</h3>
   <p style={{maxWidth:'46ch',margin:'10px auto 22px'}}>Send me a mail and I will reply. Here is my card.</p>
   <div className="row" style={{justifyContent:'center'}}><MailBtn/><CV/><Copy/></div>
- </div></Sec>
+ </div>
+  <div className="item raise" id="request" style={{marginTop:28,padding:'32px 28px'}}>
+   <h3 style={{fontSize:22}}>Submit a project or request</h3>
+   <p style={{maxWidth:'62ch'}}>Need a project solved, a mentor, a tutor, something built, or a research collaborator? Tell me what you need and I will get back to you.</p>
+   <RequestForm/>
+  </div></Sec>
  <footer>© 2026 Simanga Mchunu · Pretoria, South Africa</footer>
  <div className="fab"><MailBtn/></div>
  </>}
