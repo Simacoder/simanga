@@ -6,7 +6,7 @@
 <title>Simanga Mchunu |ML Engineer, ML Researcher, Backend, MLOps & DevOps Engineer, Applied Mathematician, Trainer</title>
 <meta name="description" content="Portfolio of Simanga Mchunu: ML Engineer, ML Researcher, backend engineer, MLOps and DevOps practitioner, applied mathematician and trainer.">
 <meta property="og:title" content="Simanga Mchunu | ML Engineer, ML Researcher, Backend, MLOps & DevOps Engineer, Trainer">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%A7%A0%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#e6eaf1;--hi:#fff;--lo:#b9c1d3;--ink:#1c2740;--mute:#525d77;--acc:#1b6f80;--accbg:#1b6f80;--onacc:#fff;
@@ -19,11 +19,21 @@ h1,h2,h3{font-family:Sora,'DM Sans',system-ui,sans-serif;line-height:1.2;margin:
 a{color:var(--acc)}a:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
 .raise{background:var(--bg);box-shadow:9px 9px 20px var(--lo),-9px -9px 20px var(--hi);border-radius:24px}
 .inset{background:var(--bg);box-shadow:inset 5px 5px 11px var(--lo),inset -5px -5px 11px var(--hi);border-radius:16px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;padding:14px 0;background:var(--bg)}
-nav .wrap{display:flex;gap:10px;align-items:center;overflow-x:auto;padding-bottom:10px;padding-top:4px}
-nav b{font:700 17px Sora,sans-serif;margin-right:auto;white-space:nowrap;padding-right:14px}
-.pill{border:0;cursor:pointer;color:var(--ink);text-decoration:none;font:500 14px 'DM Sans',sans-serif;padding:9px 13px;border-radius:999px;background:var(--bg);box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi);white-space:nowrap;display:inline-block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.only-m{display:none}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;padding:12px 0 8px;background:var(--bg)}
+nav .wrap{display:flex;gap:14px;align-items:center}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex:none;margin-bottom:6px;position:relative;z-index:1;background:var(--bg);padding-right:8px}
+.brand img{height:38px;width:auto;border-radius:10px;display:block;box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi)}
+.brand b{font:700 17px Sora,sans-serif;white-space:nowrap}
+.menu{display:flex;gap:8px;align-items:center;flex:1;min-width:0;justify-content:flex-end;justify-content:safe flex-end;overflow-x:auto;padding:6px 6px 12px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border:0;border-radius:14px;cursor:pointer;background:var(--bg);box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi);flex-direction:column;align-items:center;justify-content:center;gap:5px;margin-bottom:6px}
+.burger span{display:block;width:22px;height:2.5px;border-radius:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+.burger[aria-expanded="true"]{box-shadow:inset 3px 3px 7px var(--lo),inset -3px -3px 7px var(--hi)}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.pill{border:0;cursor:pointer;color:var(--ink);text-decoration:none;font:500 13.5px 'DM Sans',sans-serif;padding:8px 11px;border-radius:999px;background:var(--bg);box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi);white-space:nowrap;display:inline-block}
 .pill:hover,.pill.on{box-shadow:inset 3px 3px 7px var(--lo),inset -3px -3px 7px var(--hi);color:var(--acc)}
 .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:start;padding:26px 0 14px}
 .hero h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.02em}
@@ -69,6 +79,21 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 .in:focus-visible{outline:3px solid var(--acc);outline-offset:2px}textarea.in{min-height:150px;resize:vertical}
 .msg{margin-top:16px;padding:14px 16px;font-weight:500}
 @media(max-width:760px){.fgrid{grid-template-columns:1fr}}
+@media(max-width:1120px){
+ .burger{display:flex}
+ .brand b{font-size:16px}
+ .menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px;flex:none;max-height:calc(100vh - 90px);overflow:visible;overflow-y:auto;padding:18px 22px 26px;background:var(--bg);box-shadow:0 18px 28px var(--lo);border-radius:0 0 24px 24px}
+ .menu.open{display:flex}
+ .menu .pill{text-align:left;padding:14px 18px;font-size:16px;border-radius:14px}
+ .only-m{display:inline-block}
+}
+@media(prefers-reduced-motion:reduce){.burger span{transition:none}}
+
+.logo{display:inline-flex;align-items:center;justify-content:center;height:58px;min-width:58px;padding:0 14px;margin-bottom:16px;border-radius:16px;background:#fff;box-shadow:4px 4px 9px var(--lo),-4px -4px 9px var(--hi)}
+.logo img{display:block;height:28px;width:auto}
+.clamp{display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.meta{font-size:13px;color:var(--mute);margin:0 0 16px;line-height:1.5}
+.note{font-size:13px;color:var(--mute);margin:22px 0 0}
 </style>
 </head>
 <body>
@@ -80,7 +105,7 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 const {useState,useEffect}=React;
 const EMAIL='simacoder@hotmail.com';
 const MAIL='mailto:'+EMAIL+'?subject='+encodeURIComponent('Hello Simanga');
-const L={li:'https://www.linkedin.com/in/simanga-mchunu-7570078a/',gh:'https://github.com/Simacoder',orcid:'https://orcid.org/0000-0001-9712-9705',yt:'https://www.youtube.com/@SimangaMchunu',zindi:'https://zindi.world/community?leaderboard=all-time&country=ZA',paper:'https://sciforum.net/paper/view/31494',icaad:'https://drive.google.com/file/d/1uNrNyCB6yGAuwioF3Q9LS7DMIxw8Vbci/view?usp=sharing',aoa:'https://drive.google.com/file/d/1wfRFKWC0HKwHGPKD4DxvNn86lkmUCv9f/view',pt:'https://github.com/pytorch-fdn/ambassador-program/issues/363',sasa:'https://sasaconference2026.org/',talk:'https://youtube.com/shorts/hMy1cLL1nb8',slides:'https://docs.google.com/presentation/d/1CCJaQ2SeDMZ3J_WKC1Y1clCIh6PqTvg5/preview',colab:'https://drive.google.com/file/d/1f8VGRQ1sA-DPHqCHdeopnJ3A4dpJqrQi/view',k8s:'https://github.com/Simacoder/k8s-observability-lab'};
+const L={li:'https://www.linkedin.com/in/simanga-mchunu-7570078a/',gh:'https://github.com/Simacoder',orcid:'https://orcid.org/0000-0001-9712-9705',yt:'https://www.youtube.com/@SimangaMchunu',zindi:'https://zindi.world/community?leaderboard=all-time&country=ZA',paper:'https://sciforum.net/paper/view/31494',icaad:'https://drive.google.com/file/d/1uNrNyCB6yGAuwioF3Q9LS7DMIxw8Vbci/view?usp=sharing',aoa:'https://drive.google.com/file/d/1wfRFKWC0HKwHGPKD4DxvNn86lkmUCv9f/view',pt:'https://github.com/pytorch-fdn/ambassador-program/issues/363',sasa:'https://sasaconference2026.org/',talk:'https://youtube.com/shorts/hMy1cLL1nb8',slides:'https://docs.google.com/presentation/d/1CCJaQ2SeDMZ3J_WKC1Y1clCIh6PqTvg5/preview',colab:'https://drive.google.com/file/d/1f8VGRQ1sA-DPHqCHdeopnJ3A4dpJqrQi/view',k8s:'https://github.com/Simacoder/k8s-observability-lab',lc:'https://leetcode.com/u/Simacoder/'};
 const A=({href,children,...r})=><a href={href} target="_blank" rel="noopener noreferrer" {...r}>{children}</a>;
 const Verify=({href,label='Verify'})=><A href={href}>{label}</A>;
 
@@ -124,7 +149,7 @@ const teach=[
  {tag:'Andela cohort',t:'KCNA trainer: Kubernetes and Cloud Native Associate',p:'Training an Andela cohort for the KCNA exam, including a hands-on observability lab on a real local cluster.',l:[['Lab on GitHub',L.k8s]]},
  {tag:'14 Feb 2026',t:'Zindi Study Jam: Financial Health Prediction Challenge',p:'A hands-on, beginner-friendly, step-by-step walkthrough of a first Zindi challenge.',l:[]}
 ];
-const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['teaching','Teaching'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['contact','Contact']];
+const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['teaching','Teaching'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['opportunities','Jobs'],['contact','Contact']];
 
 function MailBtn({cls='btn',children='Send a Mail'}){return <a className={cls} href={MAIL} target="_blank" rel="noopener noreferrer">✉ {children}</a>}
 function CV(){return <a className="btn soft" href="Simanga_Mchunu_CV.pdf" download="Simanga_Mchunu_CV.pdf">⬇ Download CV</a>}
@@ -142,14 +167,14 @@ const pics=[
  ['zindi-study-jam','Zindi Study Jam I hosted: Financial Health Prediction Challenge, 14 Feb 2026','Talks',1000,1000],
  ['mentoring-google-zindi','Mentoring participants at the Google Zindi hackathon 2026, Johannesburg','Mentoring & judging',1000,693],
  ['mentoring-pupils','Mentoring a school pupil team in the challenge, Cape Town','Mentoring & judging',1000,707],
- ['judging-prep','Preparing to judge the technical side of participants\' projects','Mentoring & judging',1000,707],
+ ['judging-prep','Preparing to judge the technical side of participants , Dec 2025\' projects','Mentoring & judging',1000,707],
  ['judge-dirisa','Technical judge, DIRISA Datathon','Mentoring & judging',1000,707],
- ['venda-winners','A University of Limpopo students I mentored won the DIRISA challenge, Dec 2025','Mentoring & judging',1000,707],
+ ['venda-winners','University of Limpopo students, I mentored won the DIRISA challenge, Dec 2025','Mentoring & judging',1000,707],
  ['second-place','2nd place, Zindi hackathon with InstaDeep, Cape Town, July 2025','Competitions',1000,667],
  ['top15','Top 15 Young Geeks, Class of 2026 (Geekulcha)','Competitions',1000,562],
  ['indabax-2025','Deep Learning IndabaX South Africa 2025, Cape Town','Community',750,1000],
  ['indabax-2026-crew','With fellow attendees at Deep Learning IndabaX South Africa 2026','Community',750,1000],
- ['google-cloud-summit','Google Cloud Summit','Community',1000,1000],
+ ['google-cloud-summit','Google Cloud Summit, July 2026','Community',1000,1000],
  ['preppilot-team','PrepPilot team at the UNISA agentic hackathon, September 2026','Competitions',1000,750],
  ['preppilot-trio','PrepPilot teammates at the UNISA agentic hackathon, September 2026','Competitions',750,1000]
 ];
@@ -186,12 +211,79 @@ function RequestForm(){
    {st==='err'&&<div className="msg inset">Sorry, that did not send. Please email <a href={'mailto:'+FORM_MAIL+'?subject='+encodeURIComponent('Project request')}>{FORM_MAIL}</a> directly.</div>}
   </div>
  </form>}
+const IC={yt:['#FF0000','YouTube',"M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"],lc:['#FFA116','LeetCode',"M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"]};
+function Logo({k}){
+ if(k==='zindi')return <div className="logo"><img src="zindi-logo.png" alt="Zindi"/></div>;
+ const[c,n,d]=IC[k];return <div className="logo"><svg viewBox="0 0 24 24" width="32" height="32" role="img" aria-label={n}><path fill={c} d={d}/></svg></div>}
+
+const ARB='https://www.arbeitnow.com/api/job-board-api';
+const REL=/data scien|data engineer|data analy|machine learning|\bml\b|\bai\b|mlops|nlp|python|software|backend|back-end|full.?stack|developer|devops|\bsre\b|cloud|kubernetes|platform engineer/i;
+const catOf=j=>{const s=j.title+' '+(j.tags||[]).join(' ');return /data|machine learning|\bml\b|\bai\b|mlops|nlp|analytic/i.test(s)?'Data & ML':/devops|\bsre\b|cloud|kubernetes|platform|infrastructure/i.test(s)?'DevOps':'Software'};
+const plain=h=>{const t=document.createElement('div');t.innerHTML=h||'';return(t.textContent||'').replace(/\s+/g,' ').trim()};
+const short=s=>s.length>190?s.slice(0,187).trimEnd()+'...':s;
+const normJob=j=>({id:j.slug,title:j.title,company:j.company_name,loc:j.location,remote:!!j.remote,type:(j.job_types||[])[0]||'',tags:j.tags||[],posted:j.created_at,url:j.url,sum:short(plain(j.description))});
+async function loadJobs(){
+ try{const r=await fetch('/api/jobs');if(!r.ok)throw new Error('no proxy');const j=await r.json();if(Array.isArray(j.jobs))return j.jobs}catch(e){}
+ const pages=await Promise.all([1,2,3].map(p=>fetch(ARB+'?page='+p).then(r=>r.json()).catch(()=>({data:[]}))));
+ const seen=new Set();
+ return pages.flatMap(p=>p.data||[]).map(normJob).filter(x=>x.id&&!seen.has(x.id)&&seen.add(x.id)&&REL.test(x.title+' '+x.tags.join(' '))).sort((a,b)=>b.posted-a.posted).slice(0,18);
+}
+const ago=ts=>{const t=typeof ts==='number'?(ts>1e12?ts/1000:ts):Date.parse(ts)/1000;const d=Math.max(0,Math.floor((Date.now()/1000-t)/86400));return d===0?'today':d===1?'1 day ago':d+' days ago'};
+const events=[
+ {t:"E-GOV'A Hackathon 2026",when:'Teams of 3 to 5 students',place:'Africa',dl:'2026-10-12',dlText:'Register by 12 Oct 2026',end:'2026-10-12',p:'Hackathon for university students in ICT, AI and computer science on AI and e-governance for public services. Each team needs a lecturer or mentor.',url:'https://www.digitalbusiness.africa/en/e-gova-hackathon-2026-registration-deadline-extended-to-october-12/',cta:'Register'},
+ {t:'PayPal AI Hackathon',when:'Online',place:'Global',dl:'2026-11-12',dlText:'Submit by 12 Nov 2026',end:'2026-11-12',p:'Build with PayPal and AI. Listed on Devpost with an online submission deadline.',url:'https://devpost.com/c/artificial-intelligence',cta:'View on Devpost'},
+ {t:'Tech Hub Africa Hackathon 2026',when:'Virtual',place:'Africa',dl:'2026-12-18',dlText:'Submit by 18 Dec 2026',end:'2026-12-18',p:'Youth-led innovation programme on smart cities, public health, renewable energy and IoT, using AI and machine learning.',url:'https://dorahacks.io/hackathon/hackathon2026challenge',cta:'Apply'},
+ {t:'IEEE ICTAS 2026',when:'14 to 16 Oct 2026',place:'Durban, South Africa',dl:null,dlText:'Check the conference page for registration',end:'2026-10-16',p:'IEEE Conference on Information Communications Technology and Society.',url:'https://mldsafrica.co.za/',cta:'View details'},
+ {t:'SACAIR 2026',when:'30 Nov to 4 Dec 2026',place:'KwaZulu-Natal, South Africa',dl:null,dlText:'Check the conference page for registration',end:'2026-12-04',p:'Southern African Conference for Artificial Intelligence Research.',url:'https://mldsafrica.co.za/',cta:'View details'}
+];
+const daysLeft=d=>Math.ceil((new Date(d+'T23:59:59')-Date.now())/864e5);
+function Opportunities(){
+ const[tab,setTab]=useState('Jobs');const[cat,setCat]=useState('All');const[jobs,setJobs]=useState(null);const[err,setErr]=useState(false);
+ useEffect(()=>{let on=true;loadJobs().then(j=>on&&setJobs(j)).catch(()=>on&&setErr(true));return()=>{on=false}},[]);
+ const list=(jobs||[]).filter(j=>cat==='All'||catOf(j)===cat);
+ const evs=events.filter(e=>new Date(e.end+'T23:59:59')>=Date.now());
+ return <>
+  <div className="row" style={{marginTop:0,marginBottom:14}}>{['Jobs','Events'].map(x=><button key={x} className={'pill'+(tab===x?' on':'')} aria-pressed={tab===x} onClick={()=>setTab(x)}>{x}</button>)}</div>
+  {tab==='Jobs'&&<>
+   <div className="row" style={{marginTop:0,marginBottom:26}}>{['All','Data & ML','Software','DevOps'].map(x=><button key={x} className={'pill'+(cat===x?' on':'')} aria-pressed={cat===x} onClick={()=>setCat(x)}>{x}</button>)}</div>
+   {!jobs&&!err&&<p className="note">Loading live jobs...</p>}
+   {err&&<p className="note">Live jobs are unavailable right now. Browse the board directly at <A href="https://www.arbeitnow.com/">arbeitnow.com</A>.</p>}
+   {jobs&&list.length===0&&<p className="note">No matching roles right now. Check back soon.</p>}
+   <div className="grid">{list.map(j=><article className="item raise" key={j.id}>
+    <div className="row" style={{marginTop:0,gap:8,marginBottom:12}}><span className="tag inset" style={{margin:0}}>{j.remote?'Remote':'On-site'}</span>{j.type&&<span className="tag inset" style={{margin:0}}>{j.type}</span>}<span className="tag inset" style={{margin:0}}>{catOf(j)}</span></div>
+    <h3>{j.title}</h3><div style={{color:'var(--acc)',fontSize:14,fontWeight:700}}>{j.company}{j.loc?' · '+j.loc:''}</div>
+    <p className="clamp">{j.sum}</p>
+    <div className="meta">Open · Posted {ago(j.posted)}<br/>Apply by: not stated, apply early</div>
+    <a className="btn" href={j.url} target="_blank" rel="noopener noreferrer nofollow">Apply</a>
+   </article>)}</div>
+   <p className="note">Live listings from <A href="https://www.arbeitnow.com/">Arbeitnow</A>, mostly remote and European roles. Deadlines are not published by the feed, so confirm on the listing.</p>
+  </>}
+  {tab==='Events'&&<>
+   <div className="grid">{evs.map(e=><article className="item raise" key={e.t}>
+    <span className="tag inset">{e.dl?daysLeft(e.dl)+' days left':'Upcoming'}</span>
+    <h3>{e.t}</h3><div style={{color:'var(--acc)',fontSize:14,fontWeight:700}}>{e.when} · {e.place}</div>
+    <p>{e.p}</p><div className="meta">{e.dlText}</div>
+    <a className="btn" href={e.url} target="_blank" rel="noopener noreferrer">{e.cta}</a>
+   </article>)}</div>
+   <p className="note">Hand-picked events, last checked 5 Oct 2026. Past events hide automatically; always confirm dates and deadlines on the organiser's page.</p>
+  </>}
+ </>}
 function App(){
- const[cur,setCur]=useState('');
+ const[cur,setCur]=useState('');const[open,setOpen]=useState(false);
+ useEffect(()=>{const k=e=>e.key==='Escape'&&setOpen(false);window.addEventListener('keydown',k);return()=>window.removeEventListener('keydown',k)},[]);
+ const goHome=e=>{e.preventDefault();setOpen(false);window.scrollTo({top:0,behavior:'smooth'});if(window.history&&history.replaceState)history.replaceState(null,'',location.pathname+location.search)};
  useEffect(()=>{const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&setCur(e.target.id)),{rootMargin:'-40% 0px -55% 0px'});
   nav.forEach(([id])=>{const el=document.getElementById(id);el&&o.observe(el)});return()=>o.disconnect()},[]);
  return <>
- <nav><div className="wrap"><b>Simanga Mchunu</b>{nav.map(([id,n])=><a key={id} href={'#'+id} className={'pill'+(cur===id?' on':'')}>{n}</a>)}</div></nav>
+ <div id="top"></div>
+ <nav><div className="wrap">
+  <a className="brand" href="#top" aria-label="Simanga Mchunu, back to home" onClick={goHome}><img src="logo.png" alt="" width="57" height="38"/><b>Simanga Mchunu</b></a>
+  <button className="burger" aria-label={open?'Close menu':'Open menu'} aria-expanded={open} aria-controls="menu" onClick={()=>setOpen(!open)}><span/><span/><span/></button>
+  <div id="menu" className={'menu'+(open?' open':'')}>
+   <a href="#top" className="pill only-m" onClick={goHome}>Home</a>
+   {nav.map(([id,n])=><a key={id} href={'#'+id} className={'pill'+(cur===id?' on':'')} onClick={()=>setOpen(false)}>{n}</a>)}
+  </div>
+ </div></nav>
  <header className="wrap hero">
   <div>
    <h1>Simanga Mchunu</h1>
@@ -240,10 +332,13 @@ function App(){
  <Sec id="gallery" title="Gallery: events I have been part of"><Gallery/></Sec>
 
  <Sec id="community" title="Community and channels"><div className="grid">
-  <article className="item raise"><h3>YouTube: Simanga Mchunu</h3><p>Tutorials and talks on machine learning, data science and building with AI.</p><a className="btn" href={L.yt} target="_blank" rel="noopener noreferrer">Watch on YouTube</a></article>
-  <article className="item raise"><h3>Zindi South Africa</h3><p>Zindi Ambassador 2025/26 and competitor on the South African all-time leaderboard.</p><a className="btn" href={L.zindi} target="_blank" rel="noopener noreferrer">View the leaderboard</a></article>
-  <article className="item raise"><h3>Code and profiles</h3><p>Open-source work, professional profile and research identifier.</p><div className="row" style={{marginTop:0}}><a className="pill" href={L.gh} target="_blank" rel="noopener noreferrer">GitHub</a><a className="pill" href={L.li} target="_blank" rel="noopener noreferrer">LinkedIn</a><a className="pill" href={L.orcid} target="_blank" rel="noopener noreferrer">ORCID</a></div></article>
+  <article className="item raise"><Logo k="yt"/><h3>YouTube: Simanga Mchunu</h3><p>Tutorials and talks on machine learning, data science and building with AI.</p><a className="btn" href={L.yt} target="_blank" rel="noopener noreferrer">Watch on YouTube</a></article>
+  <article className="item raise"><Logo k="zindi"/><h3>Zindi South Africa</h3><p>Zindi Ambassador 2025/26 and competitor on the South African all-time leaderboard.</p><a className="btn" href={L.zindi} target="_blank" rel="noopener noreferrer">View the leaderboard</a></article>
+  <article className="item raise"><Logo k="lc"/><h3>LeetCode progress</h3><p>Follow my data structures and algorithms practice and problem-solving progress.</p><a className="btn" href={L.lc} target="_blank" rel="noopener noreferrer">View my progress</a></article>
+  <article className="item raise"><h3>Code and profiles</h3><p>Open-source work, professional profile and research identifier.</p><div className="row" style={{marginTop:0}}><a className="pill" href={L.gh} target="_blank" rel="noopener noreferrer">GitHub</a><a className="pill" href={L.lc} target="_blank" rel="noopener noreferrer">LeetCode</a><a className="pill" href={L.li} target="_blank" rel="noopener noreferrer">LinkedIn</a><a className="pill" href={L.orcid} target="_blank" rel="noopener noreferrer">ORCID</a></div></article>
  </div></Sec>
+
+ <Sec id="opportunities" title="Jobs and events"><Opportunities/></Sec>
 
  <Sec id="contact" title="Let's talk"><div className="item raise" style={{textAlign:'center',padding:'40px 22px'}}>
   <h3 style={{fontSize:24}}>Hiring, collaborating or curious about the research?</h3>
