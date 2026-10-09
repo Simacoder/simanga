@@ -156,7 +156,7 @@ const teach=[
  {tag:'Andela cohort',t:'KCNA trainer: Kubernetes and Cloud Native Associate',p:'Training an Andela cohort for the KCNA exam, including a hands-on observability lab on a real local cluster.',l:[['Lab on GitHub',L.k8s]]},
  {tag:'14 Feb 2026',t:'Zindi Study Jam: Financial Health Prediction Challenge',p:'A hands-on, beginner-friendly, step-by-step walkthrough of a first Zindi challenge.',l:[]}
 ];
-const nav=[['research','Research'],['press','Press'],['experience','Experience'],['projects','Projects'],['teaching','Teaching'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['opportunities','Jobs'],['refer','Refer me'],['contact','Contact']];
+const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['teaching','Teaching'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['opportunities','Jobs'],['refer','Refer me'],['contact','Contact']];
 
 function MailBtn({cls='btn',children='Send a Mail'}){return <a className={cls} href={MAIL} target="_blank" rel="noopener noreferrer">✉ {children}</a>}
 function CV(){return <a className="btn soft" href="Simanga_Mchunu_CV.pdf" download="Simanga_Mchunu_CV.pdf">⬇ Download CV</a>}
@@ -307,7 +307,6 @@ function App(){
   <a className="brand" href="#top" aria-label="Simanga Mchunu, back to home" onClick={goHome}><img src="logo.png" alt="" width="57" height="38"/><b>Simanga Mchunu</b></a>
   <button className="burger" aria-label={open?'Close menu':'Open menu'} aria-expanded={open} aria-controls="menu" onClick={()=>setOpen(!open)}><span/><span/><span/></button>
   <div id="menu" className={'menu'+(open?' open':'')}>
-   <a href="#top" className="pill only-m" onClick={goHome}>Home</a>
    {nav.map(([id,n])=><a key={id} href={'#'+id} className={'pill'+(cur===id?' on':'')} onClick={()=>setOpen(false)}>{n}</a>)}
   </div>
  </div></nav>
@@ -332,11 +331,11 @@ function App(){
   </div>
  </header>
 
- <Sec id="research" title="Research and talks"><div className="grid">
+ <Sec id="research" title="Research, talks and press"><div className="grid">
   {research.map(r=><article className="item raise" key={r.t}><span className="tag inset">{r.tag}</span><h3>{r.t}</h3><p>{r.p}</p><div className="row" style={{marginTop:0,gap:18}}>{r.l.map(([n,h])=><Verify key={n} href={h} label={n}/>)}</div></article>)}
- </div></Sec>
-
- <Sec id="press" title="In the press: articles on my work"><div className="grid">
+ </div>
+  <h3 id="press" style={{fontSize:22,margin:'40px 0 22px'}}>In the press: articles on my work</h3>
+  <div className="grid">
   {press.map(a=><article className="item raise" key={a.u}><span className="tag inset">{a.src}</span><h3>{a.t}</h3><p>{a.p}</p><div className="row" style={{marginTop:0,gap:18}}><A href={a.u}>{a.cta}</A></div></article>)}
  </div></Sec>
 
