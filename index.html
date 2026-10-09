@@ -94,6 +94,7 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 .clamp{display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .meta{font-size:13px;color:var(--mute);margin:0 0 16px;line-height:1.5}
 .note{font-size:13px;color:var(--mute);margin:22px 0 0}
+.refmsg{padding:18px 20px;white-space:pre-wrap;word-break:break-word;font-size:15px;line-height:1.6;color:var(--ink);text-align:left;margin:0 0 6px;font-family:'DM Sans',system-ui,sans-serif}
 </style>
 </head>
 <body>
@@ -113,6 +114,12 @@ const research=[
  {tag:'Published',t:'Algorithm Design and Mathematical Modeling for Efficient ASR in Low-Resource African Languages',p:'Published on Sciforum (2026) and presented as a contributed talk at Deep Learning IndabaX South Africa 2026, UKZN Durban.',l:[['Read the paper',L.paper],['Watch the talk',L.talk]]},
  {tag:'Oral presentation',t:'Expanded Sample Space Theory: A Comprehensive Framework for Real-World Probability',p:'Accepted for oral presentation at ICAAD 2026 (submission 648). ESST extends classical probability to real-world uncertainty.',l:[['Verify acceptance',L.icaad]]},
  {tag:'Poster',t:'Expanded Sample Space Theory (ESST) at SASA 2026',p:'Abstract A100 accepted as a poster presentation by the SASA 2026 Scientific Program Committee, Boksburg.',l:[['Conference site',L.sasa]]}
+];
+const press=[
+ {src:'TRUFM · Radio',t:'Science and Technology: discussing mathematics as a discipline',p:'A TRUFM radio discussion on mathematics as a discipline, shared on the station\'s Facebook page.',u:'https://web.facebook.com/trufm/posts/scienceandtechnology-we-are-discussing-mathematics-as-a-discipline-with-simanga-/1424538889719284/?_rdc=1&_rdr#',cta:'View the post'},
+ {src:'IBM Community · Blog, Apr 2025',t:'Harnessing the Power of IBM LinuxONE',p:'An article I wrote for the IBM Community, published on 24 April 2025.',u:'https://community.ibm.com/community/user/blogs/simanga-mchunu/2025/04/24/harnessing-the-power-of-ibm-linuxone',cta:'Read the article'},
+ {src:'Geekulcha · Young Geeks',t:'Young Geeks profile: Simanga Mchunu',p:'My profile page in the Geekulcha Young Geeks programme.',u:'https://www.geekulcha.dev/young-geeks/simanga-mchunu?fers=Hil1SUnjgxB2h3ZMjZfO',cta:'View the profile'},
+ {src:'TUT Newsroom · 2026',t:'Hacker Society prepares students for future-ready tech careers',p:'News coverage from Tshwane University of Technology on the Hacker Society and its work preparing students for tech careers.',u:'https://www.tut.ac.za/newsroom/all-news/2026/hacker-society-prepares-students-for-future-ready-tech-careers.php',cta:'Read the story'}
 ];
 const jobs=[
  ['2026 – Present','PyTorch Foundation Ambassador','Community leadership','Promote PyTorch through technical education, workshops and mentorship.',[['Verify selection',L.pt]]],
@@ -149,7 +156,7 @@ const teach=[
  {tag:'Andela cohort',t:'KCNA trainer: Kubernetes and Cloud Native Associate',p:'Training an Andela cohort for the KCNA exam, including a hands-on observability lab on a real local cluster.',l:[['Lab on GitHub',L.k8s]]},
  {tag:'14 Feb 2026',t:'Zindi Study Jam: Financial Health Prediction Challenge',p:'A hands-on, beginner-friendly, step-by-step walkthrough of a first Zindi challenge.',l:[]}
 ];
-const nav=[['research','Research'],['experience','Experience'],['projects','Projects'],['teaching','Teaching'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['opportunities','Jobs'],['contact','Contact']];
+const nav=[['research','Research'],['press','Press'],['experience','Experience'],['projects','Projects'],['teaching','Teaching'],['skills','Skills'],['awards','Awards'],['gallery','Gallery'],['community','Community'],['opportunities','Jobs'],['refer','Refer me'],['contact','Contact']];
 
 function MailBtn({cls='btn',children='Send a Mail'}){return <a className={cls} href={MAIL} target="_blank" rel="noopener noreferrer">✉ {children}</a>}
 function CV(){return <a className="btn soft" href="Simanga_Mchunu_CV.pdf" download="Simanga_Mchunu_CV.pdf">⬇ Download CV</a>}
@@ -157,6 +164,26 @@ function Copy(){const[ok,set]=useState(false);
  const go=async()=>{try{await navigator.clipboard.writeText(EMAIL);set(true);setTimeout(()=>set(false),1800)}catch(e){window.prompt('Copy email:',EMAIL)}};
  return <button className="btn soft" onClick={go}>{ok?'Copied':'Copy email'}</button>}
 function Sec({id,title,children}){return <section id={id}><div className="wrap"><h2>{title}</h2>{children}</div></section>}
+
+function Refer(){
+ const[ok,setOk]=useState('');
+ const base='https://www.simangamchunu.co.za/';
+ const cv='https://drive.google.com/file/d/1-EuHQ_gxeaPb-6H9VDSpOnHVHrNOpMSy/view?usp=sharing';
+ const subject='Referral: Simanga Mchunu';
+ const body='Hi,\n\nI think Simanga is a perfect fit for our post. His work ethic, technical ability and leadership fit well. May you please look at his resume and portfolio:\n\nPortfolio: '+base+'\nResume: '+cv+'\nLinkedIn: '+L.li+'\n\nThank you.';
+ const mailto='mailto:?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ const gmail='https://mail.google.com/mail/?view=cm&fs=1&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ const cp=async(txt,key)=>{try{await navigator.clipboard.writeText(txt);setOk(key);setTimeout(()=>setOk(''),1800)}catch(e){window.prompt('Copy:',txt)}};
+ return <div className="item raise" style={{padding:'32px 28px'}}>
+  <p style={{maxWidth:'62ch',marginTop:0}}>Know a team hiring or a post that fits? Forward them this ready-made message. It opens in your email app with my portfolio and resume links already filled in. Add the recipient and send.</p>
+  <pre className="refmsg inset" aria-label="Referral message preview">{body}</pre>
+  <div className="row">
+   <a className="btn" href={mailto}>✉ Refer me by email</a>
+   <a className="btn soft" href={gmail} target="_blank" rel="noopener noreferrer">Open in Gmail</a>
+   <button className="btn soft" onClick={()=>cp(body,'msg')}>{ok==='msg'?'Copied':'Copy message'}</button>
+   <button className="btn soft" onClick={()=>cp(base,'link')}>{ok==='link'?'Copied':'Copy portfolio link'}</button>
+  </div>
+ </div>}
 
 const cats=['All','Talks','Mentoring & judging','Competitions','Community'];
 const pics=[
@@ -289,7 +316,7 @@ function App(){
    <h1>Simanga Mchunu</h1>
    <p style={{marginTop:14}}>Machine learning engineer and AI researcher. I build speech technology and probability models for African languages and real-world uncertainty, and ship them as backend systems.</p>
    <p style={{marginTop:10}}>Backend engineer, MLOps and DevOps practitioner, applied mathematician and trainer. I design and ship machine learning systems, research speech technology for African languages, and teach cloud-native and ML skills to developers and students.</p>
-   <div className="row"><MailBtn/><CV/><a className="btn soft" href="#request">Submit a project</a></div>
+   <div className="row"><MailBtn/><CV/><a className="btn soft" href="#request">Submit a project</a><a className="btn soft" href="#refer">Refer me</a></div>
    <div className="stats">{stats.map(x=><div className="stat raise" key={x[1]}><b>{x[0]}</b><span>{x[1]}</span></div>)}</div>
   </div>
   <div className="card raise" id="card">
@@ -307,6 +334,10 @@ function App(){
 
  <Sec id="research" title="Research and talks"><div className="grid">
   {research.map(r=><article className="item raise" key={r.t}><span className="tag inset">{r.tag}</span><h3>{r.t}</h3><p>{r.p}</p><div className="row" style={{marginTop:0,gap:18}}>{r.l.map(([n,h])=><Verify key={n} href={h} label={n}/>)}</div></article>)}
+ </div></Sec>
+
+ <Sec id="press" title="In the press: articles on my work"><div className="grid">
+  {press.map(a=><article className="item raise" key={a.u}><span className="tag inset">{a.src}</span><h3>{a.t}</h3><p>{a.p}</p><div className="row" style={{marginTop:0,gap:18}}><A href={a.u}>{a.cta}</A></div></article>)}
  </div></Sec>
 
  <Sec id="experience" title="Experience"><div className="tl">
@@ -339,6 +370,8 @@ function App(){
  </div></Sec>
 
  <Sec id="opportunities" title="Jobs and events"><Opportunities/></Sec>
+
+ <Sec id="refer" title="Refer me to your work opportunity"><Refer/></Sec>
 
  <Sec id="contact" title="Let's talk"><div className="item raise" style={{textAlign:'center',padding:'40px 22px'}}>
   <h3 style={{fontSize:24}}>Hiring, collaborating or curious about the research?</h3>
