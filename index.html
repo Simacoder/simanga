@@ -122,6 +122,7 @@ const press=[
  {src:'TUT Newsroom · 2026',t:'Hacker Society prepares students for future-ready tech careers',p:'News coverage from Tshwane University of Technology on the Hacker Society and its work preparing students for tech careers.',u:'https://www.tut.ac.za/newsroom/all-news/2026/hacker-society-prepares-students-for-future-ready-tech-careers.php',cta:'Read the story'}
 ];
 const jobs=[
+ ['Oct 2026','Mentor and Technical Mentor, IBM Z Datathon 2026','Shooting Stars Foundation / IBM','Mentored and gave technical support to more than 17,000 participants from different countries in the 24-hour international datathon, for the second year in a row. Participants kept asking the same setup questions, so I built an agentic guide that helped students set up their LinuxONE Cloud environment, get mentor check-ins, troubleshoot technical issues and track deadlines with countdowns. Support queries dropped significantly compared with last year, which freed mentors to spend more time on participants\' projects.',[['Event page','https://www.starhacks.org/ibm-z-datathon-2026'],['Setup guide','https://lnkd.in/d-U5FWsE']]],
  ['2026 – Present','PyTorch Foundation Ambassador','Community leadership','Promote PyTorch through technical education, workshops and mentorship.',[['Verify selection',L.pt]]],
  ['2026 – Present','Machine Learning Researcher','Independent / UNISA Mathematical Sciences','Research in probability theory, ML and mathematical modeling, focused on speech recognition for African languages.',[['ORCID',L.orcid]]],
  ['Oct 2025','Mentor, IBM Z Datathon','Shooting Star Foundation / IBM','Guided over 14,000 students from 44 countries applying AI to Technology for Good challenges.'],
@@ -147,10 +148,11 @@ const skills=[
  ['Data and tools','SQL, PostgreSQL, MongoDB, Tableau, Power BI, Git, Linux, React, Angular']
 ];
 const awards=[
+ ['Multiple-time hackathon and datathon winner'],['Mentor, IBM Z Datathon 2026 (second consecutive year)','https://www.starhacks.org/ibm-z-datathon-2026'],
  ['2026 PyTorch Foundation Ambassador',L.pt],['Oral presentation accepted: ICAAD 2026',L.icaad],['SASA 2026 poster accepted (A100)',L.sasa],['AOA Rising Stars 2026 Excellence Certificate',L.aoa],['Top Olympiad Mathematics student, AOA class of 2026'],
  ['Won IBM Z Datathon 2024 (global number 1)'],['Won ALX Hackathon 2024'],['2nd place, Zindi / IndabaX South Africa 2025 hackathon with InstaDeep'],['Top 15 Young Geek Award, class of 2026'],['Speaker: Deep Learning IndabaX South Africa 2026'],['Zindi Ambassador 2025/26, 2x Tableau Ambassador'],['DIRISA Datathon judge and technical mentor 2025']
 ];
-const stats=[['14,000+','students guided as IBM Z Datathon mentor'],['#1','global winner, IBM Z Datathon 2024'],['3','conference acceptances in 2026']];
+const stats=[['17,000+','participants mentored at IBM Z Datathon 2026'],['#1','global winner, IBM Z Datathon 2024'],['3','conference acceptances in 2026'],['Multiple','hackathon and datathon wins']];
 const teach=[
  {tag:'29 May 2026 · Online',t:'Building a Large Language Model from Scratch',p:'An introductory practical session on building and understanding LLMs using Python and AI fundamentals. Hosted by Dorothy Akoth for Divas in AI, with Zindi.',l:[['Slides',L.slides],['Colab notebook',L.colab]]},
  {tag:'Andela cohort',t:'KCNA trainer: Kubernetes and Cloud Native Associate',p:'Training an Andela cohort for the KCNA exam, including a hands-on observability lab on a real local cluster.',l:[['Lab on GitHub',L.k8s]]},
@@ -304,9 +306,10 @@ function App(){
  return <>
  <div id="top"></div>
  <nav><div className="wrap">
-  <a className="brand" href="#top" aria-label="Simanga Mchunu, back to home" onClick={goHome}><img src="logo.png" alt="" width="57" height="38"/><b>Simanga Mchunu</b></a>
+  <a className="brand" href="#top" aria-label="Simanga Mchunu, back to home" onClick={goHome}><img src="logo.png" alt="" width="57" height="38"/></a>
   <button className="burger" aria-label={open?'Close menu':'Open menu'} aria-expanded={open} aria-controls="menu" onClick={()=>setOpen(!open)}><span/><span/><span/></button>
   <div id="menu" className={'menu'+(open?' open':'')}>
+   <a href="#top" className="pill only-m" onClick={goHome}>Home</a>
    {nav.map(([id,n])=><a key={id} href={'#'+id} className={'pill'+(cur===id?' on':'')} onClick={()=>setOpen(false)}>{n}</a>)}
   </div>
  </div></nav>
