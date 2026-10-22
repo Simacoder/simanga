@@ -94,6 +94,7 @@ footer{text-align:center;color:var(--mute);padding:50px 0 120px;font-size:14px}
 .clamp{display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .meta{font-size:13px;color:var(--mute);margin:0 0 16px;line-height:1.5}
 .note{font-size:13px;color:var(--mute);margin:22px 0 0}
+.pimg{display:block;width:100%;height:auto;border-radius:14px;margin-bottom:16px}
 .refmsg{padding:18px 20px;white-space:pre-wrap;word-break:break-word;font-size:15px;line-height:1.6;color:var(--ink);text-align:left;margin:0 0 6px;font-family:'DM Sans',system-ui,sans-serif}
 </style>
 </head>
@@ -120,6 +121,7 @@ const press=[
  {src:'IBM Community · Blog, Apr 2025',t:'Harnessing the Power of IBM LinuxONE',p:'An article I wrote for the IBM Community, published on 24 April 2025.',u:'https://community.ibm.com/community/user/blogs/simanga-mchunu/2025/04/24/harnessing-the-power-of-ibm-linuxone',cta:'Read the article'},
  {src:'Geekulcha · Young Geeks',t:'Young Geeks profile: Simanga Mchunu',p:'My profile page in the Geekulcha Young Geeks programme.',u:'https://www.geekulcha.dev/young-geeks/simanga-mchunu?fers=Hil1SUnjgxB2h3ZMjZfO',cta:'View the profile'},
  {src:'TUT Newsroom · 2026',t:'Hacker Society prepares students for future-ready tech careers',p:'News coverage from Tshwane University of Technology on the Hacker Society and its work preparing students for tech careers.',u:'https://www.tut.ac.za/newsroom/all-news/2026/hacker-society-prepares-students-for-future-ready-tech-careers.php',cta:'Read the story'},
+ {src:'PyTorch Foundation · Blog, 2026',t:'Meet the 2026 PyTorch Foundation Ambassadors',p:'The PyTorch Foundation\'s announcement of its 2026 cohort of 24 ambassadors from communities across Africa, Asia, Europe and the United States. I am one of them.',u:'https://pytorch.org/blog/meet-the-2026-pytorch-foundation-ambassadors/',cta:'Read the announcement',img:'https://pytorch.org/wp-content/uploads/2026/10/PTFA-Announcement-1200x628-1.png',alt:'PyTorch Foundation "Welcome 2026 Ambassadors" banner showing the 24 ambassadors'},
  {src:'LinkedIn',t:'Featured on LinkedIn',p:'More coverage of my work, shared on LinkedIn.',u:'https://lnkd.in/p/dgAb4CD9',cta:'Read more'}
 ];
 const jobs=[
@@ -340,7 +342,7 @@ function App(){
  </div>
   <h3 id="press" style={{fontSize:22,margin:'40px 0 22px'}}>In the press: articles on my work</h3>
   <div className="grid">
-  {press.map(a=><article className="item raise" key={a.u}><span className="tag inset">{a.src}</span><h3>{a.t}</h3><p>{a.p}</p><div className="row" style={{marginTop:0,gap:18}}><A href={a.u}>{a.cta}</A></div></article>)}
+  {press.map(a=><article className="item raise" key={a.u}>{a.img&&<img className="pimg" src={a.img} alt={a.alt||a.t} loading="lazy" onError={e=>{e.currentTarget.style.display='none'}}/>}<span className="tag inset">{a.src}</span><h3>{a.t}</h3><p>{a.p}</p><div className="row" style={{marginTop:0,gap:18}}><A href={a.u}>{a.cta}</A></div></article>)}
  </div></Sec>
 
  <Sec id="experience" title="Experience"><div className="tl">
